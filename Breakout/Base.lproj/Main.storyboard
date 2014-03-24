@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mkh-w2-C4K"/>
+                        <viewControllerLayoutGuide type="bottom" id="eMZ-LM-ffB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="steampunk_frame_640x1136" translatesAutoresizingMaskIntoConstraints="NO" id="ZPF-IJ-Tmr">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ol8-zA-Nv2" customClass="BallView">
+                                <rect key="frame" x="153" y="447" width="15" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X46-XV-TMK" userLabel="Bottom Edge View">
+                                <rect key="frame" x="0.0" y="540" width="320" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7T-X0-q6X">
+                                <rect key="frame" x="124" y="485" width="72" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="steampunk_launch_button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="launchButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Yoj-uA-jAw"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8EB-Uc-cbS" customClass="PaddleView">
+                                <rect key="frame" x="125" y="463" width="70" height="20"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Ep9-DA-m1s" appends="YES" id="Iz2-Sx-UNx"/>
+                            <outletCollection property="gestureRecognizers" destination="Mdn-Sz-unZ" appends="YES" id="7v2-Db-BiU"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="ballView" destination="Ol8-zA-Nv2" id="Yss-ly-HaG"/>
+                        <outlet property="bottomEdgeView" destination="X46-XV-TMK" id="dIF-vy-0hL"/>
+                        <outlet property="launchButton" destination="t7T-X0-q6X" id="ky7-vg-ljS"/>
+                        <outlet property="paddleView" destination="8EB-Uc-cbS" id="kaZ-QT-y9f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Ep9-DA-m1s">
+                    <connections>
+                        <action selector="dragPaddle:" destination="vXZ-lx-hvc" id="6HO-BW-MVs"/>
+                    </connections>
+                </panGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="Mdn-Sz-unZ">
+                    <connections>
+                        <action selector="swipeUpToLaunch:" destination="vXZ-lx-hvc" id="eMo-zG-kh0"/>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="7wv-dX-2k9"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="156" y="163"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="steampunk_frame_640x1136" width="640" height="1136"/>
+        <image name="steampunk_launch_button" width="134" height="158"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
